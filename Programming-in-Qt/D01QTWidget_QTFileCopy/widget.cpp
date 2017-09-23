@@ -53,6 +53,7 @@ void CopyFile()
     for(i=0;i<10;i++)
     {
         QObject::connect(&ths[i],&QThread::started,[&](){
+            QThread::sleep(5);
             qDebug()<<i;
         });
         QObject::connect(&ths[i],&QThread::finished,[=](){
@@ -66,44 +67,48 @@ void CopyFile()
     }
 
     int k=0;
-    for(k=0;k<10;k++)
-    {
-        qDebug()<<"线程退出,回收系统资源";
-        ths[k].quit();
-        ths[k].wait();
+
+
+
+
+
+        for(k=0;k<10;k++)
+        {
+            ths[k].quit();
+            ths[k].wait();
+        }
     }
-}
 
-void Widget::on_pbCopy_clicked()
-{
-    CopyFile();
+    void Widget::on_pbCopy_clicked()
+    {
+        CopyFile();
 
-#if 0
-    QFileInfo fileinfo("D:/qtfile/mysql-installer-community-5.7.19.0.msi");
-    qDebug()<<fileinfo.absoluteDir().absolutePath();
-    qDebug()<<fileinfo.absoluteFilePath();
-    qDebug()<<fileinfo.absolutePath();
-    qDebug()<<fileinfo.baseName();
-    qDebug()<<"-------------------------";
-    qDebug()<<fileinfo.bundleName();
-    qDebug()<<fileinfo.canonicalFilePath();
-    qDebug()<<fileinfo.canonicalPath();
-    qDebug()<<fileinfo.completeBaseName();
-    qDebug()<<"-------------------------";
-    qDebug()<<fileinfo.completeSuffix();
-    qDebug()<<fileinfo.created().date().toString("yyyy-MM-dd");
-    qDebug()<<fileinfo.fileName();
-    qDebug()<<fileinfo.isAbsolute();
-    qDebug()<<"-------------------------";
-    qDebug()<<fileinfo.isBundle();
-    qDebug()<<fileinfo.isDir();
-    qDebug()<<fileinfo.isExecutable();
-    qDebug()<<fileinfo.isFile();
-    qDebug()<<"-------------------------";
-    qDebug()<<fileinfo.isNativePath();
-    qDebug()<<fileinfo.isRoot();
-    qDebug()<<fileinfo.isSymLink();
-    qDebug()<<fileinfo.isWritable();
-#endif
+    #if 0
+        QFileInfo fileinfo("D:/qtfile/mysql-installer-community-5.7.19.0.msi");
+        qDebug()<<fileinfo.absoluteDir().absolutePath();
+        qDebug()<<fileinfo.absoluteFilePath();
+        qDebug()<<fileinfo.absolutePath();
+        qDebug()<<fileinfo.baseName();
+        qDebug()<<"-------------------------";
+        qDebug()<<fileinfo.bundleName();
+        qDebug()<<fileinfo.canonicalFilePath();
+        qDebug()<<fileinfo.canonicalPath();
+        qDebug()<<fileinfo.completeBaseName();
+        qDebug()<<"-------------------------";
+        qDebug()<<fileinfo.completeSuffix();
+        qDebug()<<fileinfo.created().date().toString("yyyy-MM-dd");
+        qDebug()<<fileinfo.fileName();
+        qDebug()<<fileinfo.isAbsolute();
+        qDebug()<<"-------------------------";
+        qDebug()<<fileinfo.isBundle();
+        qDebug()<<fileinfo.isDir();
+        qDebug()<<fileinfo.isExecutable();
+        qDebug()<<fileinfo.isFile();
+        qDebug()<<"-------------------------";
+        qDebug()<<fileinfo.isNativePath();
+        qDebug()<<fileinfo.isRoot();
+        qDebug()<<fileinfo.isSymLink();
+        qDebug()<<fileinfo.isWritable();
+    #endif
 
-}
+    }
