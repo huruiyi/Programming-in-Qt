@@ -18,15 +18,18 @@ TcpClientWidget::~TcpClientWidget()
 
 void TcpClientWidget::on_sendBtn_clicked()
 {
-    if(ui->sendLineEdit->text()=="")
+    if(ui->sendtextEdit->toPlainText()=="")
     {
         return ;
     }
 
-    QString msg=userName+":"+ui->sendLineEdit->text();
+    QString msg=userName+":"+ui->sendtextEdit->toPlainText();
 
+    qDebug()<<msg;
+    qDebug()<<msg.toUtf8().length();
     tcpSocket->write(msg.toUtf8());
-    ui->sendLineEdit->clear();
+
+    ui->sendtextEdit->clear();
 }
 
 void TcpClientWidget::on_enterBtn_clicked()
