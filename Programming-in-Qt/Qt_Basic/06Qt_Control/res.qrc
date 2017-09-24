@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>XPStyle/AddedIcon.ico</file>
+        <file>XPStyle/ConflictIcon.ico</file>
+        <file>XPStyle/DeletedIcon.ico</file>
+        <file>XPStyle/IgnoredIcon.ico</file>
+        <file>XPStyle/LockedIcon.ico</file>
+        <file>XPStyle/ModifiedIcon.ico</file>
+        <file>XPStyle/NormalIcon.ico</file>
+        <file>XPStyle/ReadOnlyIcon.ico</file>
+        <file>XPStyle/UnversionedIcon.ico</file>
+    </qresource>
+</RCC>

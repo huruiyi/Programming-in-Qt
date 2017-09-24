@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>StaWidget</class>
+ <widget class="QWidget" name="StaWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>687</width>
+    <height>461</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>StaWidget</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="HeaderForm" name="widget_header" native="true"/>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_stack" native="true">
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QStackedWidget" name="stackedWidget_register">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="page_one">
+         <widget class="QLabel" name="label_one">
+          <property name="geometry">
+           <rect>
+            <x>280</x>
+            <y>190</y>
+            <width>48</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>page_one</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="page_two">
+         <widget class="QLabel" name="label_two">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>180</y>
+            <width>54</width>
+            <height>12</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>page_two</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="page_three">
+         <widget class="QLabel" name="label_three">
+          <property name="geometry">
+           <rect>
+            <x>280</x>
+            <y>180</y>
+            <width>54</width>
+            <height>12</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>page_three</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="page_four">
+         <widget class="QLabel" name="label_four">
+          <property name="geometry">
+           <rect>
+            <x>280</x>
+            <y>180</y>
+            <width>54</width>
+            <height>12</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>page_four</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_op" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="pushButton_one">
+        <property name="text">
+         <string>one</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_two">
+        <property name="text">
+         <string>two</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_three">
+        <property name="text">
+         <string>three</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_four">
+        <property name="text">
+         <string>four</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>HeaderForm</class>
+   <extends>QWidget</extends>
+   <header location="global">headerform.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

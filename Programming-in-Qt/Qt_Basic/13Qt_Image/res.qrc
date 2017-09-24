@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/visualstudio.png</file>
+    </qresource>
+</RCC>

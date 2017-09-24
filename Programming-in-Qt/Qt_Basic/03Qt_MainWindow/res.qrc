@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/qadd.ico</file>
+        <file>res/qdelete.ico</file>
+        <file>res/qopen.ico</file>
+    </qresource>
+</RCC>

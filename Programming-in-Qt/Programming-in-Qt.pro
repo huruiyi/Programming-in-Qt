@@ -9,5 +9,6 @@ SUBDIRS += \
     05QtConApp_Thread \
     D02QtWidget_QTcpSocket \
     D03QtWidget_TCPServer \
-    D04QtWidget_TCPClient
+    D04QtWidget_TCPClient \
+    Qt_Basic
 
