@@ -9,25 +9,28 @@
 #include<QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
-: QMainWindow(parent)
+    : QMainWindow(parent)
 {
     this->resize(800,600);
     QMenuBar *bar=new QMenuBar(this);
     bar->setFont(QFont("微软雅黑",10,20,false));
     this->setMenuBar(bar);
     QMenu *fileMenu= bar->addMenu("文件");
-    QMenu *editMenu=  bar->addMenu("编辑");
+    QMenu *editMenu= bar->addMenu("编辑");
 
     QAction *fileNewAction=  fileMenu->addAction("新建");
+    fileNewAction->setIcon(QIcon("://res/qadd.ico"));
     fileMenu->addSeparator();
-
     QAction *fileOpenAction=  fileMenu->addAction("打开");
-    QAction *fileDelAction=  fileMenu->addAction("删除");
-    fileNewAction->setIcon(QIcon  ("://res/qadd.ico"));
     fileOpenAction->setIcon(QIcon("://res/qopen.ico"));
+    QAction *fileDelAction=  fileMenu->addAction("删除");
     fileDelAction->setIcon(QIcon("://res/qdelete.ico"));
+
+    editMenu->addAction("新建")->setIcon(QIcon("://res/qadd.ico"));
+    editMenu->addAction("打开")->setIcon(QIcon("://res/qopen.ico"));
+    editMenu->addAction("删除")->setIcon(QIcon("://res/qdelete.ico"));
+
     fileDelAction->setCheckable(false);
-     ////////////////////////////////////////////////////////////////////////////////////////
 
     QToolBar * toolBar=new QToolBar(this);
     //设置默认的位置
@@ -48,17 +51,14 @@ MainWindow::MainWindow(QWidget *parent)
     QKeySequence(Qt::CTRL + Qt::Key_P);
 
     connect(barActionNew,&QAction::triggered,this,[=](){
-           qDebug() << "barActionNew is triggered";
+        qDebug() << "barActionNew is triggered";
     });
-    QAction *barActionOpen=   toolBar->addAction(QIcon("://res/qopen.ico"),"打开");
+
+    toolBar->addAction(QIcon("://res/qopen.ico"),"打开");
     toolBar->addSeparator();
-    QAction *barActionDelete=  toolBar->addAction(QIcon("://res/qdelete.ico"),"删除");
+    toolBar->addAction(QIcon("://res/qdelete.ico"),"删除");
     toolBar->setFont(QFont("微软雅黑",10,20,false));
 
-
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////
     QStatusBar *qstatus=new QStatusBar(this);
     this->setStatusBar(qstatus);
 

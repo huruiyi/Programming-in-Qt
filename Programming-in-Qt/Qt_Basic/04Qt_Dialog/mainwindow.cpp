@@ -18,7 +18,6 @@ MainWindow::MainWindow(QWidget *parent) :
     findButton->resize(150,40);
     findButton->move(2,40);
 
-
     QPushButton *  moreButton = new QPushButton(tr("&More"));
     moreButton->setParent(this);
     moreButton->resize(150,40);
@@ -26,17 +25,17 @@ MainWindow::MainWindow(QWidget *parent) :
     moreButton->setCheckable(true);
     moreButton->setAutoDefault(false);
 
-
-
     ui->setupUi(this);
     connect(ui->actionExec,&QAction::triggered,[=](){
         QDialog dlg(this);
+        dlg.setFixedSize(300,300);
         dlg.exec();
     });
 
     connect(ui->actionShow,&QAction::triggered,[=](){
         QDialog * dlg =new QDialog(this);
         dlg->show();
+        dlg->setFixedSize(300,300);
         dlg->setAttribute(Qt::WA_DeleteOnClose);
     });
     //设置默认选中
@@ -47,9 +46,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     buttonBox->setParent(this);
     buttonBox->move(2,120);
-//connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
-//connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
-
+    //connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    //connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
+    connect(this,&QMainWindow::destroyed,[=](){
+        return;
+    });
 }
 
 MainWindow::~MainWindow()
@@ -66,13 +67,13 @@ void MainWindow::on_pushButtonGetFileName_clicked()
     qDebug()<<desktopPath;
     QFileDialog dialog(this);
     QStringList filters;
-    filters << "Image files (*.png *.xpm *.jpg)"
-            << "Text files (*.txt)"
-            << "Any files (*)";
+    filters << "image files (*.png *.xpm *.jpg)"
+            << "text files (*.txt)"
+            << "any files (*)";
     dialog.setNameFilters(filters);
-    //dialog.setNameFilter("All C++ files (*.cpp *.cc *.C *.cxx *.c++)");
+    //dialog.setNameFilter("All C++ files (*.cpp *.cc *.c *.cxx *.c++)");
     //dialog.setNameFilter("*.cpp *.cc *.C *.cxx *.c++");
-    //dialog.setNameFilter("Images (*.png *.xpm *.jpg);;Text files (*.txt);;XML files (*.xml)");
-    QString selectedFileName= dialog.getOpenFileName(this,"请选择文件",desktopPath, tr("text (*.pdf *.txt *.cpp)"));
+    //dialog.setNameFilter("Images (*.png *.xpm *.jpg);;text files (*.txt);;xml files (*.xml)");
+    QString selectedFileName= dialog.getOpenFileName(this,"请选择文件",desktopPath, tr("text (*.pdf *.txt *.cpp);;text files (*.txt);;xml files (*.xml)"));
     qDebug()<<"你选择的文件是："<<selectedFileName;
 }
